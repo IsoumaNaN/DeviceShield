@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DeviceShield</string>
+    <string name="title_threat_alert">Thiết bị của bạn đang gặp những vấn đề sau</string>
+    <string name="btn_open_settings">Mở cài đặt</string>
+</resources>

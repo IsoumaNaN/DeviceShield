@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvThreatCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code 00"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary" />
+
+            <TextView
+                android:id="@+id/tvThreatName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/tvThreatCode"
+                android:layout_toStartOf="@id/tvThreatStatus"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Threat Name"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tvThreatStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="AN TOÀN"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvThreatDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Description of the threat check"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Evidence / Root Cause Box -->
+        <LinearLayout
+            android:id="@+id/layoutEvidence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvEvidenceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BẰNG CHỨNG HỆ THỐNG / LÝ DO LỘ:"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="#D32F2F" />
+
+            <TextView
+                android:id="@+id/tvThreatEvidence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Evidence details"
+                android:typeface="monospace"
+                android:textSize="11sp"
+                android:textColor="#B71C1C" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
