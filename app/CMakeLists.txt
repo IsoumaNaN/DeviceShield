@@ -16,4 +16,5 @@ find_library(
 target_link_libraries(
     deviceshield_native
     ${log-lib}
+    ${CMAKE_DL_LIBS}
 )

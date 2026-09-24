@@ -3,6 +3,8 @@
 #include <vector>
 #include <fcntl.h>
 #include <unistd.h>
+#include <dlfcn.h>
+#include <cstdio>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/ptrace.h>
@@ -270,7 +272,12 @@ Java_com_deviceshield_checker_checks_RootCheck_nativeCheckRootTier2Detail(
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_deviceshield_checker_checks_HookCheck_nativeCheckHookTier2Detail(
         JNIEnv *env, jobject /* this */) {
-    void *func = (void *)open;
+    void *func = dlsym(RTLD_DEFAULT, "openat");
+    if (!func) {
+        func = dlsym(RTLD_DEFAULT, "open");
+    }
+
+#if defined(__aarch64__)
     if (func) {
         uint32_t first_insn = *(uint32_t *)func;
         if (first_insn == 0x58000050 || (first_insn & 0xFC000000) == 0x14000000) {
@@ -280,5 +287,6 @@ Java_com_deviceshield_checker_checks_HookCheck_nativeCheckHookTier2Detail(
             return env->NewStringUTF(res.c_str());
         }
     }
+#endif
     return nullptr;
 }
